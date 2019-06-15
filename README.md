@@ -79,16 +79,17 @@ public class UniFees extends Application {
         
     	//use index to determine cost and store cost in an integer
         switch(index) {
-    		case 0:	dormFee = 0;	//No Dorm selected
-    				break;
+    		
+		case 0:	dormFee = 0;	//No Dorm selected
+    			break;
         	case 1:	dormFee = 1800;	//Allen Hall
-        			break;
+        		break;
         	case 2:	dormFee = 2000;	//Smith Hall
-        			break;
+        		break;
         	case 3: dormFee = 2800;	//William Hall
-        			break;
+        		break;
         	case 4:	dormFee = 3000;	//University Suites
-        			break;
+        		break;
         }
         
      }
@@ -99,14 +100,15 @@ public class UniFees extends Application {
     	int index = choice2.getSelectionModel().getSelectedIndex();
         
         switch(index) {
-    		case 0:	mealFee = 0;	//No Meal Selected
-    				break;
+    		
+		case 0:	mealFee = 0;	//No Meal Selected
+    			break;
         	case 1:	mealFee = 600;	//7 meals per week
-        			break;
+        		break;
         	case 2:	mealFee = 1000;	//14 meals per week
-        			break;
+        		break;
         	case 3: mealFee = 1800;	//Unlimited meals
-        			break;
+        		break;
         }
         
      }
