@@ -1,5 +1,7 @@
 This is a Java application that calculates costs based on choice box selections. 
 
+//-------------------------------IMPORTS-------------------------------------//
+
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
@@ -14,8 +16,11 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
+//---------------------------------CLASS---------------------------------------//
+
 public class UniFees extends Application {
-   
+
+//-------------------------------DECLARATIONS-----------------------------------//
     //Instance variables
     private ChoiceBox<String> choice1;
     private ChoiceBox<String> choice2;
@@ -33,6 +38,8 @@ public class UniFees extends Application {
     TextField field;
     String displaytext = "Total Semester Charges";
     
+ //-----------------------------------STAGE--------------------------------------//  
+ 
     public void start(Stage primaryStage)
     {   
         //Initializing text field and label
@@ -72,7 +79,9 @@ public class UniFees extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
-    
+
+//-----------------------------------METHODS--------------------------------------//  
+
     //ActionEvent for dorm choice box
     public void processChoice1(ActionEvent event)
     {	
@@ -125,9 +134,11 @@ public class UniFees extends Application {
     	field.setText("$" + Integer.toString(cost));
     }
     
-    
+ //-------------------------------------MAIN---------------------------------------//     
+ 
     public static void main(String[] args)
     {
         launch(args);
     }
+    
 }
