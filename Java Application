@@ -30,8 +30,8 @@ public class UniFees extends Application {
     int mealFee;
     
     //Text field to display costs
-	TextField field;
-	String displaytext = "Total Semester Charges";
+    TextField field;
+    String displaytext = "Total Semester Charges";
     
     public void start(Stage primaryStage)
     {   
