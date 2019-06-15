@@ -1,16 +1,20 @@
 public class Ship implements Comparable<Ship> {
 	
-	//Instance variables
+//-------------------------INSTANCE VARIABLES-----------------------//
+
 	private String shipName;
 	private int yearBuilt;
 	
-	//Constructor passing parameters
+//---------------------------CONSTRUCTOR---------------------------//
+
 	public Ship(String shipName,int yearBuilt) {
 		this.shipName = shipName;
 		this.yearBuilt = yearBuilt;
 	}
 
-	//Mutator methods
+//---------------------------METHODS-------------------------------//
+	
+	//setter
 	public void setName(String shipName) {
 		this.shipName = shipName;
 	}
@@ -19,11 +23,12 @@ public class Ship implements Comparable<Ship> {
 		this.yearBuilt = yearBuilt;
 	}
 		
-	//Getter methods
+	//getter
 	public String getName() {
 		return shipName;
 	}
 	
+	//getter
 	public int getYear() {
 		return yearBuilt;
 	}
@@ -38,6 +43,8 @@ public class Ship implements Comparable<Ship> {
 		int value = shipName.compareTo(s.getName());
 		return value;
 	}
+	
+//------------------------------MAIN---------------------------------//
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
