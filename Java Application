@@ -16,8 +16,8 @@ import javafx.stage.Stage;
 
 public class UniFees extends Application {
    
-	//Instance variables
-	private ChoiceBox<String> choice1;
+    //Instance variables
+    private ChoiceBox<String> choice1;
     private ChoiceBox<String> choice2;
     private Button calculate;
 
