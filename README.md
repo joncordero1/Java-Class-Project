@@ -81,7 +81,7 @@ public class UniFees extends Application {
         switch(index) {
     		
 		case 0:	dormFee = 0;	//No Dorm selected
-    			break;
+    		break;
         	case 1:	dormFee = 1800;	//Allen Hall
         		break;
         	case 2:	dormFee = 2000;	//Smith Hall
@@ -102,7 +102,7 @@ public class UniFees extends Application {
         switch(index) {
     		
 		case 0:	mealFee = 0;	//No Meal Selected
-    			break;
+    		break;
         	case 1:	mealFee = 600;	//7 meals per week
         		break;
         	case 2:	mealFee = 1000;	//14 meals per week
