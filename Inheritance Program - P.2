@@ -1,20 +1,23 @@
 public class CargoShip extends Ship {
 
-	//Instance variable for tonnage
+//---------------------------INSTANCE VARIABLES-------------------------------//
 	private int tonnage;
 	
-	//Constructor using super
+//------------------------------CONSTRUCTOR-----------------------------------//
+
 	public CargoShip(String shipName,int yearBuilt, int tonnage) {
 		super(shipName,yearBuilt);
 		this.tonnage = tonnage;	
 	}
-	
-	//Mutator method
+
+//--------------------------------METHODS------------------------------------//
+
+	//Mutator 
 	public void setTonnage(int tonnage) {
 		this.tonnage = tonnage;
 	}
 
-	//Getter method
+	//Getter 
 	public int getTonnage() {
 		return tonnage;
 	}
@@ -25,6 +28,8 @@ public class CargoShip extends Ship {
 		int cell = str.indexOf('b');;
 		return str.substring(0,cell) + tonnage + " ton cargo capacity" ;
 	}
+
+//-------------------------------------MAIN-----------------------------------//
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
