@@ -1,0 +1,118 @@
+import java.util.Scanner;
+
+public class ShipsCollection {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+//---------------------------------------VARIABLES FOR SHIP INFO------------------------//
+		int type;		//type of ship
+		int year;		//year built
+		int capacity;	//passenger limit
+		int tonnage;	//cargo capacity
+		String name;	//ship name
+
+//---------------------------------------DECLARATIONS FOR LOOP-------------------------//
+		
+		int end = 0;							//used to exit or continue loop
+		int loopEnd = 0;						//increment and array index
+		
+		Ship[] shipArray = new Ship[10];		//Declaring array of 10 objects
+
+		Scanner sc = new Scanner(System.in);	//Scanner
+		
+//----------------------------------------------LOOP-----------------------------------//	
+		
+		while(end != 1 && loopEnd < 10) {														
+
+		System.out.println("Enter 1 for a Cruise Ship, 2 for a Cargo Ship, or 3 for a Ship: ");
+			type = sc.nextInt();
+		System.out.println("Enter the year the ship was built: ");
+			year = sc.nextInt();
+		System.out.println("Enter ship name: ");
+			sc.nextLine();							//prevents issue with scanning string after integer
+			name = sc.nextLine();
+			
+		if(type == 1) {
+			
+			System.out.println("Enter the maximum passenger limit: ");
+				capacity = sc.nextInt();
+				
+				CruiseShip cr = new CruiseShip(name,year,capacity);	//Creating CruiseShip object
+				shipArray[loopEnd] = cr;							//Storing
+			
+			System.out.println("Ship added.");
+			loopEnd++;
+	
+		}
+		else if(type == 2) {
+			
+			System.out.println("Enter the cargo capacity in tonnage: ");
+				tonnage = sc.nextInt();
+				
+			CargoShip ca = new CargoShip(name,year,tonnage);	//creating CargoShip object
+				shipArray[loopEnd] = ca;						//Storing
+				
+			System.out.println("Ship added.");
+			loopEnd++;
+				
+		}
+		else if(type == 3) {
+			
+			Ship sh = new Ship(name,year);	//Creating Ship object
+				shipArray[loopEnd] = sh;	//Storing
+				
+			System.out.println("Ship added.");
+			loopEnd++;
+			
+		}
+		else {
+			
+			System.out.println("Invalid input");
+			
+		}	
+
+	System.out.println("\nShips stored: " + loopEnd);				//Tally of ships stored	
+	System.out.println("Enter 1 to exit loop or 2 to continue.");
+		end = sc.nextInt();
+		
+	}
+		
+	//close scanner	
+	sc.close();
+	
+	
+//----------------------------------------------SORTING ARRAY-----------------------------------//
+	
+	Ship temp;
+	
+	for(int i = 0; i < loopEnd; i++) 			//Storing index value starting from 0, ending at the second to last index
+	{
+		for(int j = i+1; j < loopEnd; j++) 		//Storing index value starting from 1, ending at the last index
+		{
+			if((shipArray[i].getName()).compareTo(shipArray[j].getName()) > 0) 		//Comparing based on name (ascending order)
+			{
+		
+			temp = shipArray[i];
+			shipArray[i] = shipArray[j];
+			shipArray[j] = temp;
+			
+			}
+			
+		}
+		
+	}
+   
+	System.out.print("Ships sorted in ascending order by name: \n");
+
+    for (int i = 0; i < loopEnd; i++) 
+    {
+    	
+        System.out.println(shipArray[i]);
+        
+    }
+
+
+}
+	
+}
