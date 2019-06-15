@@ -1,4 +1,3 @@
-# Java-Class-Project
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
@@ -15,32 +14,32 @@ import javafx.stage.Stage;
 
 public class UniFees extends Application {
    
-	  //INSTANCE VARIABLES
-	  private ChoiceBox<String> choice1;
+	//Instance variables
+	private ChoiceBox<String> choice1;
     private ChoiceBox<String> choice2;
     private Button calculate;
 
-    //ARRAYS USED TO FILL CHOICE BOXES
+    //Arrays used to fill choice boxes
     String[] dorms = {"No Dorm Selected","Allen Hall", "Smith Hall","William Hall","University Suites"};
     String[] mealPlans = {"No Meal Selected","7 meals per week", "14 meals per week","Unlimited meals"};
     
-    //INTEGERS TO HOLD COSTS
+    //Integers to hold costs
     int dormFee;
     int mealFee;
     
-    //TEXT FIELD TO DISPLAY CALCULATED COST
-	  TextField field;
-	  String displaytext = "Total Semester Charges";
+    //Text field to display costs
+	TextField field;
+	String displaytext = "Total Semester Charges";
     
     public void start(Stage primaryStage)
     {   
-        //INITIALIZING TEXTFIELD AND LABEL
+        //Initializing text field and label
         field = new TextField(displaytext);	
         field.setFont(new Font(15)); 
         
         Label label = new Label("Select a dorm and meal plan:");
         
-        //CREATING TWO CHOICE BOXES
+        //Creating two choice boxes
         choice1 = new ChoiceBox<String>();
         choice1.getItems().addAll(dorms);
         choice1.getSelectionModel().selectFirst();
@@ -51,7 +50,7 @@ public class UniFees extends Application {
         choice2.getSelectionModel().selectFirst();
         choice2.setOnAction(this::processChoice2);
         
-        //CREATING TEXT CONTROL TO CALCULATE COST
+        //Creating text control to calculate costs
         calculate = new Button("Calculate Cost");
         HBox button = new HBox(calculate);
         button.setSpacing(10);
@@ -59,7 +58,7 @@ public class UniFees extends Application {
         button.setAlignment(Pos.CENTER);
         calculate.setOnAction(this::processButtonPush);
         
-        //CREATING LAYOUT
+        //Creating layout
         VBox root = new VBox(label, choice1,choice2,button, field);
         root.setPadding(new Insets(15, 15, 15, 25));
         root.setSpacing(10);
@@ -72,15 +71,15 @@ public class UniFees extends Application {
         primaryStage.show();
     }
     
-    //ACTIONEVENT FOR DORM CHOICE BOX
+    //ActionEvent for dorm choice box
     public void processChoice1(ActionEvent event)
     {	
-    	//STORE ARRAY INDEX OF CHOICE
+    	//store array index of choice
     	int index = choice1.getSelectionModel().getSelectedIndex();
         
-    	//USE INDEX TO DETERMINE COST AND STORE IN INTEGER
+    	//use index to determine cost and store cost in an integer
         switch(index) {
-    		case 0:	dormFee = 0;	    //No Dorm selected
+    		case 0:	dormFee = 0;	//No Dorm selected
     				break;
         	case 1:	dormFee = 1800;	//Allen Hall
         			break;
@@ -94,13 +93,13 @@ public class UniFees extends Application {
         
      }
   
-    //ACTIONEVENT FOR MEAL PLAN CHOICE BOX. FUNCTIONS LIKE PREVIOUS.
+    //ActionEvent for meal plan choice box. Functions like previous.
     public void processChoice2(ActionEvent event)
     {
     	int index = choice2.getSelectionModel().getSelectedIndex();
         
         switch(index) {
-    		case 0:	mealFee = 0;	    //No Meal Selected
+    		case 0:	mealFee = 0;	//No Meal Selected
     				break;
         	case 1:	mealFee = 600;	//7 meals per week
         			break;
@@ -112,10 +111,10 @@ public class UniFees extends Application {
         
      }
 
-    //ACTIONEVENT FOR CALCULATE BUTTON
+    //ActionEvent for calculate button
     public void processButtonPush(ActionEvent event)
     {	
-    	//ADD COSTS AND STORE IN INTEGER. SET TEXTFIELD TO DISPLAY TOTAL COST. 
+    	//Add costs and store in an integer. Set Text Field to display the total cost. 
     	int cost = dormFee + mealFee;
     	field.setText("$" + Integer.toString(cost));
     }
