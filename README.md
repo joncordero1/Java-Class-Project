@@ -1,3 +1,5 @@
+This is a Java application that calculates costs based on choice box selections. 
+
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
