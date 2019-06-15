@@ -1,0 +1,47 @@
+public class Ship implements Comparable<Ship> {
+	
+	//Instance variables
+	private String shipName;
+	private int yearBuilt;
+	
+	//Constructor passing parameters
+	public Ship(String shipName,int yearBuilt) {
+		this.shipName = shipName;
+		this.yearBuilt = yearBuilt;
+	}
+
+	//Mutator methods
+	public void setName(String shipName) {
+		this.shipName = shipName;
+	}
+	
+	public void setYear(int yearBuilt) {
+		this.yearBuilt = yearBuilt;
+	}
+		
+	//Getter methods
+	public String getName() {
+		return shipName;
+	}
+	
+	public int getYear() {
+		return yearBuilt;
+	}
+	
+	//toString method to display ship name and year built
+	public String toString() {
+		return shipName + " built in " + yearBuilt; 
+	}
+	
+	//compareTo method using implemented interface 
+	public int compareTo(Ship s) {
+		int value = shipName.compareTo(s.getName());
+		return value;
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
