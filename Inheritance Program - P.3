@@ -1,0 +1,35 @@
+public class CruiseShip extends Ship {
+	
+	//Instance variable for maximum number of passengers
+	private int capacity;
+	
+	//Constructor using super to initialize parent variables
+	public CruiseShip(String shipName,int yearBuilt, int capacity) {
+		super(shipName,yearBuilt);
+		this.capacity = capacity;
+	}
+
+	//Mutator method
+	public void setCapacity(int capacity) {
+		this.capacity = capacity;
+	}
+
+	//Getter method
+	public int getCapacity() {
+		return capacity;
+	}
+	
+	//toString method to display ship name and passenger capacity
+	public String toString() {
+		String str = super.toString();
+		int cell = str.indexOf('b');;
+		return str.substring(0,cell) + capacity + " passenger limit";
+	}
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
