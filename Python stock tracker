@@ -1,0 +1,54 @@
+#This program summarizes Activision Blizzard stock trends.
+#It is also be used to track my holdings.
+
+import pandas as pd
+import numpy as np
+import re
+from urllib.request import urlopen
+from bs4 import BeautifulSoup
+
+url = "https://finance.yahoo.com/quote/ATVI/"
+html = urlopen(url)
+
+soup = BeautifulSoup(html, 'html.parser')
+type(soup)
+
+#Print title
+title = soup.title
+print(title)
+
+#Create list of summarized values
+rows = soup.find_all('tr')
+list_rows = []
+
+for row in rows:
+    cells = row.find_all('td')
+    str_cells = str(cells)
+    clean = re.compile('<.*?>')
+    clean2 = (re.sub(clean, '',str_cells))
+    list_rows.append(clean2)
+
+#Convert list to numpy array
+num = np.array(list_rows)
+
+#Creat table
+df = pd.DataFrame(num, columns=['Summary'])
+print(df)
+
+#Using txt file to track holdings
+file = open("Holdings.txt", "a") 
+decision = input("\nPurchase?(y/n): ") 
+
+if decision == 'y':
+    amount = input('Enter purchase details (m/d/y), (amount), (cost per stock): ')
+    file.write(amount) #writes contents to Holdings.txt
+    file.close() 
+    rfile = open("Holdings.txt", "r")
+    print(rfile.read()) #printing contents of file
+    
+elif decision == 'n':
+    file.close()
+    rfile = open("Holdings.txt", "r")
+    print(rfile.read())
+else:
+    print('Invalid input. Please enter y or n')
